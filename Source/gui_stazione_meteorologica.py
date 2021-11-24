@@ -29,8 +29,8 @@ def retrieve_ini():
         ini_config.update({"csv_enable" : Config.getint('MAIN', 'csv_enable')})
         # [TECHNICAL config.ini section]
         ini_config.update({"offset_enable" : Config.getint('TECHNICAL', 'offset_enable')})
-        ini_config.update({"temp_offset" : Config.getfloat('TECHNICAL', 'temp_offset')})
-        ini_config.update({"hum_offset" : Config.getfloat('TECHNICAL', 'hum_offset')})
+        ini_config.update({"temp_offset" : Config.getint('TECHNICAL', 'temp_offset')})
+        ini_config.update({"hum_offset" : Config.getint('TECHNICAL', 'hum_offset')})
         ini_config.update({"press_offset" : Config.getint('TECHNICAL', 'press_offset')})
     except:
         messagebox.showerror("File non trovato", 'Nessun file di configurazione "config.ini" trovato.')
@@ -46,10 +46,10 @@ def connect():
             break
         except:
             # In caso di mancanza di comunicazione tramite porta COM scelta
-            if messagebox.askretrycancel("Errore di comunicazione COM", 'Nessun dispositivo trovato sulla porta ' + ini_config["com_port"]) == True:
-                continue
-            else:
+            if messagebox.askretrycancel("Errore di comunicazione COM", 'Nessun dispositivo trovato sulla porta ' + ini_config["com_port"]) == False:
                 exit()
+            else:
+                continue
     return arduino
 
 # Ricezione messaggi tramite porta COM
@@ -63,11 +63,11 @@ def obt_messages():
     temp_pressione = arduino.readline().decode('utf-8')
 
     # Esegue la correzione del valore trasmesso ( misura - offset )
-    global_temp.set(float(temp_temperatura[:4]) - ini_config["temp_offset"])
+    global_temp.set(int(temp_temperatura) - ini_config["temp_offset"])
     # Esegue la correzione del valore trasmesso ( misura - offset )
-    global_hum.set(float(temp_umidita[:4]) - ini_config["hum_offset"])
+    global_hum.set(int(temp_umidita) - ini_config["hum_offset"])
     # Esegue la correzione del valore trasmesso ( misura - offset )
-    global_press.set(int(temp_pressione[:4]) - ini_config["press_offset"])
+    global_press.set(int(temp_pressione) - ini_config["press_offset"])
 
     # Invia alla funzione csv_write i tre parametri da stampare a video
     csv_write(global_temp.get(), global_hum.get(), global_press.get())
@@ -147,7 +147,7 @@ def set_form():
     button_1 = Checkbutton(set_form, text="ATTIVA OUTPUT FILE CSV", onvalue=1, variable=csv_state)
     button_2 = Checkbutton(set_form, text="APPLICA CORREZIONE VALORI", onvalue=1, variable=offset_state)
     save_button = ttk.Button(set_form, text="Salva", command=lambda: savesettings(csv_state.get(), offset_state.get()))
-    build = ttk.Label(set_form, text="Build 0.2")
+    build = ttk.Label(set_form, text="Build 0.3")
 
     # Posizionamento Widget
     button_1.grid(column=1, row=1, sticky="W", padx=25, pady=(10, 0))
@@ -161,6 +161,7 @@ def set_form():
     save_button.grid(column=1, row=3, sticky="W", padx=25, pady=(5, 0))
     build.grid(column=1, row=3, sticky="E", padx=10, pady=(15, 0))
     
+    set_form.iconbitmap(r"img\icon.ico")
     # SET_FORM Main Loop
     set_form.mainloop()
 
@@ -178,23 +179,32 @@ def main_form():
     val_umid = ttk.Label(window, textvariable=global_hum, font=('TkDefaultFont', 12))
     val_press = ttk.Label(window, textvariable=global_press, font=('TkDefaultFont', 12))
 
-    photo = PhotoImage(file=r"img\\settings.png")
+    unit_mis_temp = Label(window, text="°C", font=('TkDefaultFont', 12))
+    unit_mis_umid = Label(window, text="%", font=('TkDefaultFont', 12))
+    unit_mis_press = Label(window, text="hPa", font=('TkDefaultFont', 12))
+
+    photo = PhotoImage(file=r"img/settings.png")
     sett_btn = ttk.Button(window, text="Impostazioni", image=photo, command=set_form)
 
     # Posizionamento Widget sulla grid
     welcome.grid(column=1, columnspan=6, row=1, ipadx=25, ipady=10, pady=10, padx=5)
 
-    temperature.grid(column=2, columnspan=2, row=3, pady=10, padx=(20, 0), sticky="W")
-    umidita.grid(column=2, columnspan=2, row=4, pady=10, padx=(20, 0), sticky="W")
-    pressione.grid(column=2, columnspan=2, row=5, pady=10, padx=(20, 0), sticky="W")
+    temperature.grid(column=1, columnspan=2, row=3, pady=10, padx=(60, 0), sticky="W")
+    umidita.grid(column=1, columnspan=2, row=4, pady=10, padx=(60, 0), sticky="W")
+    pressione.grid(column=1, columnspan=2, row=5, pady=10, padx=(60, 0), sticky="W")
 
-    val_temp.grid(column=5, columnspan=2, row=3, sticky="W")
-    val_umid.grid(column=5, columnspan=2, row=4, sticky="W")
-    val_press.grid(column=5, columnspan=2, row=5, sticky="W")
+    val_temp.grid(column=4, columnspan=1, row=3, padx=(0, 10), sticky="E")
+    val_umid.grid(column=4, columnspan=1, row=4, padx=(0, 10), sticky="E")
+    val_press.grid(column=4, columnspan=1, row=5, padx=(0, 10), sticky="E")
 
-    sett_btn.grid(column=5, columnspan=2, row=6, sticky="NE")
+    unit_mis_temp.grid(column=5, columnspan=1, row=3, pady=10, padx=(0, 0), sticky="W")
+    unit_mis_umid.grid(column=5, columnspan=1, row=4, pady=10, padx=(0, 0), sticky="W")
+    unit_mis_press.grid(column=5, columnspan=1, row=5, pady=10, padx=(0, 0), sticky="W")
+
+    sett_btn.grid(column=1, columnspan=1, row=6, padx=(5, 0), sticky="W")
 
     window.after(2000, obt_messages())
+    window.iconbitmap(r"img\icon.ico")
     window.mainloop()
 
 if __name__ == "__main__":

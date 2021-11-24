@@ -1,3 +1,5 @@
+// Arduino for Stazione Meteorologica >= 0.3
+
 #include <Wire.h>
 #include <Adafruit_Sensor.h>
 #include <Adafruit_BME280.h>
@@ -26,9 +28,9 @@ void loop() {
 void printValues() {
 
   // Scrivi via seriale il valore della temperatura
-  Serial.println(bme.readTemperature());
+  Serial.println(int(bme.readTemperature()));
   // Scrivi via seriale il valore dell'umidità
-  Serial.println(bme.readHumidity());
+  Serial.println(int(bme.readHumidity()));
   // Scrivi via seriale il valore della pressione
-  Serial.println(bme.readPressure() / 100.0F);
+  Serial.println(int(bme.readPressure() / 100));
 }

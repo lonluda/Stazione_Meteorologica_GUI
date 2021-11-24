@@ -1,0 +1,1 @@
+pyinstaller.exe --onefile --clean --noconsole --icon=icon.ico gui_stazione_meteorologica.py
