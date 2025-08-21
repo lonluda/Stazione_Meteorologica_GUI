@@ -20,7 +20,6 @@ con le misurazioni effettuate della temperatura, umidità e pressione.
 ![Cattura6](https://github.com/user-attachments/assets/07c968e7-5aed-4a5b-9bc5-12270b9a0813)
 
 
-
 ## IMPORTANTE 
 Accertarsi sempre che i file config.ini e la cartella /img/settings.png 
 siano presenti nella stessa cartella dell'applicazione "Stazione_meteorologica.exe",
@@ -30,7 +29,7 @@ Inoltre bisogna rilevare la porta di comunicazione seriale COM assegnata da Wind
 alla periferica di rilevazione ( Arduino ) e scrivere il numero della porta COM assegnata
 nella relativa sezione dedicata del file config.ini :
 
-<img src="https://github.com/user-attachments/assets/2da7285a-a4c1-4f64-9e4a-78852fe90b45" width="50%" />
+<img src="https://github.com/user-attachments/assets/2da7285a-a4c1-4f64-9e4a-78852fe90b45" width="50%" height="50%"/>
 
 ### Arduino
 La cartella 'Arduino' contiene il file sketch e relative librerie da inserire
