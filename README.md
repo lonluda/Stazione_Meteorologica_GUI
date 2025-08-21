@@ -37,6 +37,9 @@ nella relativa sezione dedicata del file config.ini :
 La cartella 'Arduino' contiene il file sketch e relative librerie da inserire
 nelle cartelle del software Arduino per poterci lavorare correttamente.
 
+![WhatsApp Image 2025-08-21 at 11 32 26](https://github.com/user-attachments/assets/43e1aa7e-4412-4416-ab2a-80c45bb8dde4)
+
+
 ### Build
 Contiene le versioni beta compilate a scopo di test.
 
