@@ -3,10 +3,10 @@
  
 ![Cattura4](https://github.com/user-attachments/assets/34cc2fba-4653-4141-a305-638d1e1a8195)
 
-Progetto per la rilevazione dei seguenti parametri ambientali:
-Temperatura - Espressa in Graci Centigradi
-Umidità - Esepressa in percentuale relativa
-Pressione - Espressa in hPa
+Progetto per la rilevazione dei seguenti parametri ambientali: <br>
+Temperatura - Espressa in Graci Centigradi<br>
+Umidità - Esepressa in percentuale relativa<br>
+Pressione - Espressa in hPa<br>
 
 ![Cattura2](https://github.com/user-attachments/assets/ec6c2e40-fa82-4509-ae49-a6a8d4e01c2a)
 
