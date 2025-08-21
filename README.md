@@ -1,7 +1,7 @@
 # Stazione Meteorologica
  Progetto per la misurazione di temperatura, umidità e pressione ambiente.
  
- ![Cattura](https://github.com/user-attachments/assets/968ab01d-92b8-460b-a23e-c0fb62df28c6)
+ ![Cattura](https://github.com/user-attachments/assets/968ab01d-92b8-460b-a23e-c0fb62df28c6) <br>
 ![Cattura4](https://github.com/user-attachments/assets/f14a8350-dd38-4b23-845a-592ff615b657)
 
 Progetto per la rilevazione dei seguenti parametri ambientali:
