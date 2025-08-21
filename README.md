@@ -5,9 +5,9 @@
 
 Progetto per la rilevazione dei seguenti parametri ambientali:
 
-### Temperatura - Espressa in Graci Centigradi<br>
-### Umidità - Esepressa in percentuale relativa<br>
-### Pressione - Espressa in hPa<br>
+• Temperatura - Espressa in Graci Centigradi<br>
+• Umidità - Esepressa in percentuale relativa<br>
+• Pressione - Espressa in hPa<br>
 
 ![Cattura2](https://github.com/user-attachments/assets/ec6c2e40-fa82-4509-ae49-a6a8d4e01c2a)
 
