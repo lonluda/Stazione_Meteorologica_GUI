@@ -3,12 +3,14 @@
  
 ![Cattura4](https://github.com/user-attachments/assets/f14a8350-dd38-4b23-845a-592ff615b657)
 
+<p>
 Progetto per la rilevazione dei seguenti parametri ambientali:
 
 Temperatura - Espressa in Graci Centigradi
 Umidità - Esepressa in percentuale relativa
 Pressione - Espressa in hPa
-<br>
+</p>
+
 ![Cattura2](https://github.com/user-attachments/assets/98bcabf6-9326-4e8b-85e7-26d9ea42bab4)
 
 Il software produce ad intervalli scelti dall'utente, un output in formato csv 
