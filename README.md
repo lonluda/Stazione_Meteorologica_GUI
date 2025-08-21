@@ -16,6 +16,11 @@ Progetto per la rilevazione dei seguenti parametri ambientali:
 Il software produce ad intervalli scelti dall'utente, un output in formato csv 
 con le misurazioni effettuate della temperatura, umidità e pressione. 
 
+![Cattura3](https://github.com/user-attachments/assets/4198b7cb-6e7d-489f-a324-3adddec41664)
+![Cattura6](https://github.com/user-attachments/assets/07c968e7-5aed-4a5b-9bc5-12270b9a0813)
+
+
+
 ## IMPORTANTE 
 Accertarsi sempre che i file config.ini e la cartella /img/settings.png 
 siano presenti nella stessa cartella dell'applicazione "Stazione_meteorologica.exe",
