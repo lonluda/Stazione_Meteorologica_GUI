@@ -9,6 +9,9 @@ Temperatura - Espressa in Graci Centigradi
 Umidità - Esepressa in percentuale relativa
 Pressione - Espressa in hPa</p>
 
+![Cattura2](https://github.com/user-attachments/assets/ec6c2e40-fa82-4509-ae49-a6a8d4e01c2a)
+
+
 Il software produce ad intervalli scelti dall'utente, un output in formato csv 
 con le misurazioni effettuate della temperatura, umidità e pressione. 
 
