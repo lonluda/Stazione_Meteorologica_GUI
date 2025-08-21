@@ -20,6 +20,8 @@ Inoltre bisogna rilevare la porta di comunicazione seriale COM assegnata da Wind
 alla periferica di rilevazione ( Arduino ) e scrivere il numero della porta COM assegnata
 nella relativa sezione dedicata del file config.ini :
 
+![Cattura](https://github.com/user-attachments/assets/968ab01d-92b8-460b-a23e-c0fb62df28c6)
+
 ### Arduino
 La cartella 'Arduino' contiene il file sketch e relative librerie da inserire
 nelle cartelle del software Arduino per poterci lavorare correttamente.
